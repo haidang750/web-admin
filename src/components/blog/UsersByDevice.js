@@ -65,19 +65,19 @@ class UsersByDevice extends React.Component {
             <Col>
               <FormSelect
                 size="sm"
-                value="last-week"
+                id="feDevice"
                 style={{ maxWidth: "130px" }}
                 onChange={() => {}}
               >
-                <option value="last-week">Last Week</option>
-                <option value="today">Today</option>
-                <option value="last-month">Last Month</option>
-                <option value="last-year">Last Year</option>
+                <option>Tuần trước</option>
+                <option>Hôm nay</option>
+                <option>Tháng trước</option>
+                <option>Năm trước</option>
               </FormSelect>
             </Col>
             <Col className="text-right view-report">
               {/* eslint-disable-next-line */}
-              <a href="#">View full report &rarr;</a>
+              <a href="#">Xem đầy đủ thống kê &rarr;</a>
             </Col>
           </Row>
         </CardFooter>
@@ -106,12 +106,12 @@ UsersByDevice.propTypes = {
 };
 
 UsersByDevice.defaultProps = {
-  title: "Users by device",
+  title: "Đánh Giá Của Khách Hàng",
   chartData: {
     datasets: [
       {
         hoverBorderColor: "#ffffff",
-        data: [68.3, 24.2, 7.5],
+        data: [73.3, 24.2, 2.5],
         backgroundColor: [
           "rgba(0,123,255,0.9)",
           "rgba(0,123,255,0.5)",
@@ -119,7 +119,7 @@ UsersByDevice.defaultProps = {
         ]
       }
     ],
-    labels: ["Desktop", "Tablet", "Mobile"]
+    labels: ["Hài Lòng", "Không Đánh Giá", "Không Hài Lòng"]
   }
 };
 

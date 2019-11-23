@@ -43,11 +43,10 @@ export default class Notifications extends React.Component {
               </div>
             </div>
             <div className="notification__content">
-              <span className="notification__category">Analytics</span>
+              <span className="notification__category">Thống Kê</span>
               <p>
-                Your website’s active users count increased by{" "}
-                <span className="text-success text-semibold">28%</span> in the
-                last week. Great job!
+                Tổng doanh thu tháng này tăng{" "}
+                <span className="text-danger text-semibold">20%</span> so với tháng trước. Tuyệt vời!
               </p>
             </div>
           </DropdownItem>
@@ -58,16 +57,15 @@ export default class Notifications extends React.Component {
               </div>
             </div>
             <div className="notification__content">
-              <span className="notification__category">Sales</span>
+              <span className="notification__category">Bán Hàng</span>
               <p>
-                Last week your store’s sales count decreased by{" "}
-                <span className="text-danger text-semibold">5.52%</span>. It
-                could have been worse!
+                Mẫu Giày{" "}
+                <span className="text-success text-semibold">Bitis Hunter</span> vừa hết hàng. Nhanh chóng nhập thêm hàng về kho!
               </p>
             </div>
           </DropdownItem>
           <DropdownItem className="notification__all text-center">
-            View all Notifications
+            Xem tất cả thông báo
           </DropdownItem>
         </Collapse>
       </NavItem>

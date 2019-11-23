@@ -12,13 +12,19 @@ import Errors from "./views/Errors";
 import ComponentsOverview from "./views/ComponentsOverview";
 import Tables from "./views/Tables";
 import BlogPosts from "./views/BlogPosts";
+import Login from "./views/Login";
 
 export default [
   {
     path: "/",
     exact: true,
     layout: DefaultLayout,
-    component: () => <Redirect to="/blog-overview" />
+    component: () => <Redirect to="/login" />
+  },
+  {
+    path: "/login",
+    layout: Login,
+    component: Login
   },
   {
     path: "/blog-overview",

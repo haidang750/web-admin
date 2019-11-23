@@ -32,7 +32,7 @@ const Discussions = ({ title, discussions }) => (
               <a className="text-secondary" href={discussion.author.url}>
                 {discussion.author.name}
               </a>{" "}
-              on{" "}
+              phản hồi về sản phẩm{" "}
               <a className="text-secondary" href={discussion.post.url}>
                 {discussion.post.title}
               </a>
@@ -49,19 +49,13 @@ const Discussions = ({ title, discussions }) => (
                   <span className="text-success">
                     <i className="material-icons">check</i>
                   </span>{" "}
-                  Approve
+                  Lưu lại
                 </Button>
                 <Button theme="white">
                   <span className="text-danger">
                     <i className="material-icons">clear</i>
                   </span>{" "}
-                  Reject
-                </Button>
-                <Button theme="white">
-                  <span className="text-light">
-                    <i className="material-icons">more_vert</i>
-                  </span>{" "}
-                  Edit
+                  Loại bỏ
                 </Button>
               </ButtonGroup>
             </div>
@@ -74,7 +68,7 @@ const Discussions = ({ title, discussions }) => (
       <Row>
         <Col className="text-center view-report">
           <Button theme="white" type="submit">
-            View All Comments
+            Xem tất cả phản hồi
           </Button>
         </Col>
       </Row>
@@ -94,49 +88,49 @@ Discussions.propTypes = {
 };
 
 Discussions.defaultProps = {
-  title: "Discussions",
+  title: "Phản Hồi",
   discussions: [
     {
       id: 1,
-      date: "3 days ago",
+      date: "3 ngày trước",
       author: {
         image: require("../../images/avatars/1.jpg"),
-        name: "John Doe",
+        name: "Lê Cẩm",
         url: "#"
       },
       post: {
-        title: "Hello World!",
+        title: "Bitis Hunter",
         url: "#"
       },
-      body: "Well, the way they make shows is, they make one show ..."
+      body: "Giày đẹp, đường chỉ may tuyệt vời, đáng đồng tiền bát gạo..."
     },
     {
       id: 2,
-      date: "4 days ago",
+      date: "4 ngày trước",
       author: {
         image: require("../../images/avatars/2.jpg"),
-        name: "John Doe",
+        name: "An Nguyễn",
         url: "#"
       },
       post: {
-        title: "Hello World!",
+        title: "Nike Prophere F1",
         url: "#"
       },
-      body: "After the avalanche, it took us a week to climb out. Now..."
+      body: "Giao hàng nhanh, chất lượng giày tốt, lần sau sẽ ủng hộ tiếp..."
     },
     {
       id: 3,
-      date: "5 days ago",
+      date: "5 ngày trước",
       author: {
         image: require("../../images/avatars/3.jpg"),
-        name: "John Doe",
+        name: "Duy Nguyễn",
         url: "#"
       },
       post: {
-        title: "Hello World!",
+        title: "Ultraboost SF1",
         url: "#"
       },
-      body: "My money's in that office, right? If she start giving me..."
+      body: "Hàng trong giống F2 chứ không đúng chất lượng của hàng SF1, thất vọng..."
     }
   ]
 };

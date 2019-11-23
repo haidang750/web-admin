@@ -49,7 +49,7 @@ class UsersOverview extends React.Component {
                     return tick;
                   }
                   // Format the amounts using Ks for thousands.
-                  return tick > 999 ? `${(tick / 1000).toFixed(1)}K` : tick;
+                  return tick > 999 ? `${(tick / 1000).toFixed(0)} triệu` : tick;
                 }
               }
             }
@@ -102,7 +102,7 @@ class UsersOverview extends React.Component {
                 size="sm"
                 className="d-flex btn-white ml-auto mr-auto ml-sm-auto mr-sm-0 mt-3 mt-sm-0"
               >
-                View Full Report &rarr;
+                Xem đầy đủ thống kê &rarr;
               </Button>
             </Col>
           </Row>
@@ -133,12 +133,12 @@ UsersOverview.propTypes = {
 };
 
 UsersOverview.defaultProps = {
-  title: "Users Overview",
+  title: "Doanh Thu",
   chartData: {
     labels: Array.from(new Array(30), (_, i) => (i === 0 ? 1 : i)),
     datasets: [
       {
-        label: "Current Month",
+        label: "Tháng Hiện Tại",
         fill: "start",
         data: [
           500,
@@ -181,7 +181,7 @@ UsersOverview.defaultProps = {
         pointHoverRadius: 3
       },
       {
-        label: "Past Month",
+        label: "Tháng Trước",
         fill: "start",
         data: [
           380,

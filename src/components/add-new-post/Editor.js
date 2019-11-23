@@ -9,8 +9,8 @@ const Editor = () => (
   <Card small className="mb-3">
     <CardBody>
       <Form className="add-new-post">
-        <FormInput size="lg" className="mb-3" placeholder="Your Post Title" />
-        <ReactQuill className="add-new-post__editor mb-1" />
+        <FormInput size="lg" className="mb-3" placeholder="Tiêu đề sản phẩm..." />
+        <ReactQuill className="add-new-post__editor mb-1" placeholder="Nội dung sản phẩm..." />
       </Form>
     </CardBody>
   </Card>

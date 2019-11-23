@@ -14,7 +14,7 @@ const BlogOverview = ({ smallStats }) => (
   <Container fluid className="main-content-container px-4">
     {/* Page Header */}
     <Row noGutters className="page-header py-4">
-      <PageTitle title="Blog Overview" subtitle="Dashboard" className="text-sm-left mb-3" />
+      <PageTitle title="Thống Kê Tổng Quát" className="text-sm-left mb-3" />
     </Row>
 
     {/* Small Stats Blocks */}
@@ -75,9 +75,8 @@ BlogOverview.propTypes = {
 BlogOverview.defaultProps = {
   smallStats: [
     {
-      label: "Posts",
-      value: "2,390",
-      percentage: "4.7%",
+      label: "Sản Phẩm",
+      value: "692",
       increase: true,
       chartLabels: [null, null, null, null, null, null, null],
       attrs: { md: "6", sm: "6" },
@@ -93,9 +92,8 @@ BlogOverview.defaultProps = {
       ]
     },
     {
-      label: "Pages",
-      value: "182",
-      percentage: "12.4",
+      label: "Khách Hàng",
+      value: "7,458",
       increase: true,
       chartLabels: [null, null, null, null, null, null, null],
       attrs: { md: "6", sm: "6" },
@@ -111,9 +109,9 @@ BlogOverview.defaultProps = {
       ]
     },
     {
-      label: "Comments",
-      value: "8,147",
-      percentage: "3.8%",
+      label: "Phản Hồi",
+      value: "135",
+      percentage: "5.3%",
       increase: false,
       decrease: true,
       chartLabels: [null, null, null, null, null, null, null],
@@ -130,7 +128,7 @@ BlogOverview.defaultProps = {
       ]
     },
     {
-      label: "New Customers",
+      label: "Khách Hàng Mới",
       value: "29",
       percentage: "2.71%",
       increase: false,
@@ -149,11 +147,11 @@ BlogOverview.defaultProps = {
       ]
     },
     {
-      label: "Subscribers",
-      value: "17,281",
+      label: "Doanh Thu",
+      value: "82,457,000",
       percentage: "2.4%",
-      increase: false,
-      decrease: true,
+      increase: true,
+      decrease: false,
       chartLabels: [null, null, null, null, null, null, null],
       attrs: { md: "4", sm: "6" },
       datasets: [

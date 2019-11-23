@@ -38,21 +38,21 @@ const TopReferrals = ({ title, referralData }) => (
         <Col>
           <FormSelect
             size="sm"
-            value="last-week"
+            id="feTopReferral"
             style={{ maxWidth: "130px" }}
             onChange={() => {}}
           >
-            <option value="last-week">Last Week</option>
-            <option value="today">Today</option>
-            <option value="last-month">Last Month</option>
-            <option value="last-year">Last Year</option>
+            <option>Tuần trước</option>
+            <option>Hôm nay</option>
+            <option>Tháng trước</option>
+            <option>Năm trước</option>
           </FormSelect>
         </Col>
 
         {/* View Full Report */}
         <Col className="text-right view-report">
           {/* eslint-disable-next-line */}
-          <a href="#">Full report &rarr;</a>
+          <a href="#">Xem thống kê đầy đủ &rarr;</a>
         </Col>
       </Row>
     </CardFooter>
@@ -71,39 +71,39 @@ TopReferrals.propTypes = {
 };
 
 TopReferrals.defaultProps = {
-  title: "Top Referrals",
+  title: "Top Khách Hàng",
   referralData: [
     {
-      title: "GitHub",
-      value: "19,291"
+      title: "Nguyễn Hải Đăng",
+      value: "13.560.000đ"
     },
     {
-      title: "Stack Overflow",
-      value: "11,201"
+      title: "Lê Cẩm",
+      value: "11.470.000đ"
     },
     {
-      title: "Hacker News",
-      value: "9,291"
+      title: "An Nguyễn",
+      value: "10.692.000đ"
     },
     {
-      title: "Reddit",
-      value: "8,281"
+      title: "Duy Nguyễn",
+      value: "8.127.000đ"
     },
     {
-      title: "The Next Web",
-      value: "7,128"
+      title: "Ngô Hiền",
+      value: "7.900.000đ"
     },
     {
-      title: "Tech Crunch",
-      value: "6,218"
+      title: "Bảo Thịnh",
+      value: "6.215.000đ"
     },
     {
-      title: "YouTube",
-      value: "1,218"
+      title: "Mạnh Khải",
+      value: "4.400.400đ"
     },
     {
-      title: "Adobe",
-      value: "1,171"
+      title: "Văn Huy",
+      value: "1.250.000đ"
     }
   ]
 };
