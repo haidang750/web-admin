@@ -1,0 +1,23 @@
+.image1{
+	height: 300px;
+	width: 300px;
+}
+.mt-2{
+	margin-top: 2px;
+}
+.titleImg{
+	color:black;
+}
+.mt-3{
+	margin-top: 3px;
+}
+.mli-1{
+	margin-left: 1px;
+	border-radius: 5px;
+	border : solid blue 1px;
+	cursor : pointer;
+}
+.main{
+	border-radius: 10px;
+	border : solid blue 1px;
+}

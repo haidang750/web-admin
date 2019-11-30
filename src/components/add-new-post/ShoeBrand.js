@@ -1,4 +1,4 @@
-import React from "react";
+import React,{Component} from "react";
 import PropTypes from "prop-types";
 import {
   Card,
@@ -10,74 +10,59 @@ import {
   InputGroup,
   InputGroupAddon,
   FormCheckbox,
+  FormRadio,
   FormInput
 } from "shards-react";
-const ShoeBrand = ({ title }) => (
-  <Card small className="mb-3">
-    <CardHeader className="border-bottom">
-      <h6 className="m-0">{title}</h6>
-    </CardHeader>
-    <CardBody className="p-0">
-      <ListGroup flush>
-        <ListGroupItem className="px-3 pb-2">
-          <FormCheckbox className="mb-1">
-            Nike
-          </FormCheckbox>
-          <FormCheckbox className="mb-1">
-            Bitis
-          </FormCheckbox>
-          <FormCheckbox className="mb-1">
-            Louis Vuitton
-          </FormCheckbox>
-          <FormCheckbox className="mb-1">
-            Adiddas
-          </FormCheckbox>
-          <FormCheckbox className="mb-1">
-            Converse
-          </FormCheckbox>
-          <FormCheckbox className="mb-1">
-            Vans
-          </FormCheckbox>
-          <FormCheckbox className="mb-1">
-            Puma
-          </FormCheckbox>
-        </ListGroupItem>
+import axios from 'axios';
 
-        <ListGroupItem className="d-flex px-3">
-          <InputGroup className="ml-auto">
-            <FormInput placeholder="Thêm thương hiệu" />
-            <InputGroupAddon type="append">
-              <Button theme="white" className="px-2">
-                <i className="material-icons">add</i>
-              </Button>
-            </InputGroupAddon>
-          </InputGroup>
-        </ListGroupItem>
+class ShoeBrand extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      categories : []
+    }
+  }
+  onHandleClick(id){
+    this.props.onReceiveCate(id);
+  }
+  render(){
+    const {categories} = this.state;
 
+    return(
+      <Card small className="mb-3">
+        <CardHeader className="border-bottom">
+          <h6 className="m-0">{"Thương Hiệu"}</h6>
+        </CardHeader>
+        <CardBody className="p-0">
+          <ListGroup flush>
+            <ListGroupItem className="px-3 pb-2">
+              {
+                categories.map((item, index)=>(
+                  <FormRadio className="mb-1" key={index} value={item._id} name="name" onClick={()=>this.onHandleClick(item._id)}>{item.name}</FormRadio>
+              ))
+              }
+            </ListGroupItem>
 
-        <ListGroupItem className="d-flex px-3 border-0">
-          <Button outline theme="accent" size="sm">
-            <i className="material-icons">save</i> Lưu Lại
-          </Button>
-          <Button theme="accent" size="sm" className="ml-auto">
-            <i className="material-icons">file_copy</i> Thêm 
-          </Button>
-        </ListGroupItem>
-      </ListGroup>
-    </CardBody>
-  </Card>
-);
+            <ListGroupItem className="d-flex px-3">
+              <InputGroup className="ml-auto">
+                <FormInput placeholder="Thêm thương hiệu" />
+                <InputGroupAddon type="append">
+                  <Button theme="white" className="px-2">
+                    <i className="material-icons">add</i>
+                  </Button>
+                </InputGroupAddon>
+              </InputGroup>
+            </ListGroupItem>
 
-ShoeBrand.propTypes = {
-  /**
-   * The component's title.
-   */
-  title: PropTypes.string
-};
-
-ShoeBrand.defaultProps = {
-  title: "Thương Hiệu"
-};
-
+          </ListGroup>
+        </CardBody>
+      </Card>
+    );
+  }
+   async componentDidMount() {
+    const categories = await axios.get('/categories');
+    this.setState({categories});
+  }
+}
 export default ShoeBrand;
 

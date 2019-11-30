@@ -1,0 +1,10 @@
+.image{
+	-webkit-background-size: 48px 48px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    height: 48px;
+    width: 48px;
+    z-index: 0;
+}

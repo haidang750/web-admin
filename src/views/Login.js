@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { TextField, Container, Button, IconButton } from "@material-ui/core";
+import {Link} from "react-router-dom";
 import "./Login.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons";
@@ -11,7 +12,6 @@ class Login extends Component {
     email: "admin@gmail.com",
     password: "123456",
   };
-  height = 0;
   constructor(props) {
     super(props);
     this.height = window.document.height;
@@ -19,8 +19,8 @@ class Login extends Component {
  
   render() {
     return (
-      <div className="container">
-        <h3>Đăng nhập</h3>
+      <div className="containerLogin">
+        <h3 className="mt-200">Đăng Nhập</h3>
         <Container>
           <TextField
             className="textFieldStyle"
@@ -65,10 +65,11 @@ class Login extends Component {
               width: 500,
               marginTop: 50,
               background: "green",
-              color: "white"
+              color:"white"
             }}
           >
-            Đăng nhập
+            {/*<Link to="/blog-overview" style={{color:"white"}}>Đăng Nhập</Link>*/}
+            Đăng Nhập
           </Button>
         </Container>
       </div>
@@ -78,22 +79,20 @@ class Login extends Component {
   handleLogin() {
     if (this.state.email !== "" && this.state.password !== "") {
       var user = {
-        email : this.state.email,
-        password : this.state.password,
+        email: this.state.email,
+        password: this.state.password,
         role : 'admin'
-      };
+      }
+     
       axios
-        .post(`https://webttcn.herokuapp.com/v1/auth`, user)
+        .post('/auth', user)
         .then(res => {
-          // localStorage.setItem('userToken', res.data.token);
-          // localStorage.setItem('user', res.data.user);
-          window.location.replace('/blog-overview');
-        }).catch((error)=> {
-          console.log(error.response);
+          localStorage.setItem('@admin_token', res.token);
+          window.location.replace("/blog-overview");
+        }).catch(error => {
+          alert("Email or Password is incorrect");
         });
-    } else {
-      alert("Enter your email or password");
-    }
+      }
   }
 }
 

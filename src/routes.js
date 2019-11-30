@@ -7,12 +7,14 @@ import { DefaultLayout } from "./layouts";
 // Route Views
 import BlogOverview from "./views/BlogOverview";
 import UserProfileLite from "./views/UserProfileLite";
+import ShoeInfor from "./views/ShoeInfor";
 import AddNewPost from "./views/AddNewPost";
 import Errors from "./views/Errors";
 import ComponentsOverview from "./views/ComponentsOverview";
 import Tables from "./views/Tables";
 import BlogPosts from "./views/BlogPosts";
 import Login from "./views/Login";
+import UserProfileFake from "./views/UserProfileFake/UserProfileFake";
 
 export default [
   {
@@ -37,6 +39,11 @@ export default [
     component: UserProfileLite
   },
   {
+    path: "/shoe-infor",
+    layout: DefaultLayout,
+    component: ShoeInfor
+  },
+  {
     path: "/add-new-post",
     layout: DefaultLayout,
     component: AddNewPost
@@ -55,6 +62,11 @@ export default [
     path: "/tables",
     layout: DefaultLayout,
     component: Tables
+  },
+  {
+    path: "/admin-profile",
+    layout: DefaultLayout,
+    component: UserProfileFake
   },
   {
     path: "/blog-posts",

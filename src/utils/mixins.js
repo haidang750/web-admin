@@ -1,5 +1,9 @@
 import axios from "axios";
 
-export function getUser() {
-	return axios.get(`https://webttcn.herokuapp.com/v1/users`);
+export function getUsers() {
+	return axios.get(`/users`);
+}
+
+export function getUser(userId) {
+	return axios.get(`/users/${userId}`);
 }

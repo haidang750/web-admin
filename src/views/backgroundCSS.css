@@ -1,0 +1,16 @@
+.bg{
+  background-image: url(".././images/avatars/image3.jpg");
+  min-width: 100%;
+  min-height: 100%;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+.bg1{
+	background-image: url(".././images/avatars/image3.jpg");
+  min-width: 100%;
+  min-height: 100%;
+  background-repeat: no-repeat;
+}
+.hello{
+	height: 150px;
+}

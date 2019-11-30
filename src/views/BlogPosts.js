@@ -1,6 +1,7 @@
 /* eslint jsx-a11y/anchor-is-valid: 0 */
 
 import React from "react";
+import {Link} from "react-router-dom";
 import {
   Container,
   Row,
@@ -119,7 +120,7 @@ class BlogPosts extends React.Component {
     } = this.state;
 
     return (
-      <Container fluid className="main-content-container px-4">
+      <Container fluid className="main-content-container px-4 bg">
         {/* Page Header */}
         <Row noGutters className="page-header py-4">
           <PageTitle sm="4" title="Danh Sách Sản Phẩm" className="text-sm-left" />
@@ -150,7 +151,7 @@ class BlogPosts extends React.Component {
                   <hr></hr>
                   <p className="card-text d-inline-block mb-3">Price : {post.body}</p>
                   <br></br>
-                  <button type="button" className="btn btn-primary">Chi Tiết</button>
+                  <Link to="shoe-infor"><button type="button" className="btn btn-primary">Chi Tiết</button></Link>
                 </CardBody>
               </Card>
             </Col>

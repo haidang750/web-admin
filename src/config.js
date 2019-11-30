@@ -1,18 +1,17 @@
 import axios from 'axios';
 
-const url = process.env.BASE_URL || "";
+const url = process.env.BASE_URL || "https://webttcn.herokuapp.com";
 
-axios.defaults.baseURL = `${url}/api`;
+axios.defaults.baseURL = `${url}/v1`;
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 // Add a request interceptor
 axios.interceptors.request.use(async function (config) {
-
-  // if(!!userToken) {
-  //   config.headers.authorization = `Bearer ${userToken}`;
-  // }
-
-  if (config.method === 'post' && config.url === `/users`) {
+  const userToken = localStorage.getItem('@admin_token');
+  if(!!userToken) {
+    config.headers.authorization = `Bearer ${userToken}`;
+  }
+  if (config.method === 'post' && (config.url === `/users` || config.url === `/auth`)) {
     delete config.headers['authorization']
   }
 
@@ -23,7 +22,7 @@ axios.interceptors.request.use(async function (config) {
 
 axios.interceptors.response.use(function (response) {
   
-  return response;
+  return response.data;
 }, function (error) {
   return Promise.reject(error);
 });

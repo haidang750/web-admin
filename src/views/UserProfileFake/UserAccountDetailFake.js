@@ -19,13 +19,47 @@ import {
 import Tables from '../../views/Tables';
 import {getUser} from "../../utils/mixins.js";
 
-class UserAccountDetails extends Component{
+class UserAccountDetailFake extends Component{
   constructor(props) {
     super(props);
+    this.state = {
+      first_name : "",
+      last_name: "",
+      email: "",
+      phone: "",
+      id: "",
+      role: "",
+      CreatedAt: "",
+      UpdatedAt: "",
+    }
   }
 
+
+  componentDidMount() {
+    const {location} = this.props.history;
+    getUser()
+      .then(res => {
+        let arrs = location.pathname.split("/");
+        let _idxUser = res.data.findIndex(item => item._id === arrs[arrs.length - 1]);
+        if(_idxUser > -1) {
+          this.setState({
+            first_name : res.data[_idxUser].first_name,
+            last_name : res.data[_idxUser].last_name,
+            email : res.data[_idxUser].email,
+            phone : res.data[_idxUser].phone,
+            id : res.data[_idxUser]._id,
+            role : res.data[_idxUser].role,
+            CreatedAt : res.data[_idxUser].createdAt,
+            UpdatedAt : res.data[_idxUser].updatedAt,
+          })
+        }
+      })
+      .catch(error => console.log(error));
+  }
+
+
+
   render(){
-    const  {userProfile} = this.props;
     return(
       <Card small className="mb-4">
         <CardHeader className="border-bottom">
@@ -42,7 +76,7 @@ class UserAccountDetails extends Component{
                       <FormInput
                         id="feFirstName"
                         placeholder="First Name"
-                        value = {userProfile.first_name}
+                        value = "Đăng"
                         onChange={() => {}}
                       />
                     </Col>
@@ -51,7 +85,7 @@ class UserAccountDetails extends Component{
                       <FormInput
                         id="feLastName"
                         placeholder="Last Name"
-                        value= {userProfile.last_name}
+                        value= "Nguyễn Hải"
                         onChange={() => {}}
                       />
                     </Col>
@@ -63,7 +97,7 @@ class UserAccountDetails extends Component{
                         type="email"
                         id="feEmail"
                         placeholder="Email Address"
-                        value= {userProfile.email}
+                        value= "nhdang.12b1.pdl@gmail.com"
                         onChange={() => {}}
                         autoComplete="email"
                       />
@@ -85,7 +119,7 @@ class UserAccountDetails extends Component{
                     <FormInput
                       id="feAddress"
                       placeholder="Phone"
-                      value={userProfile.phone}
+                      value="0931991040"
                       onChange={() => {}}
                     />
                   </FormGroup>
@@ -95,13 +129,13 @@ class UserAccountDetails extends Component{
                       <FormInput
                         id="feCity"
                         placeholder="Id"
-                        value={userProfile._id}
+                        value="admin123456789"
                         onChange={() => {}}
                       />
                     </Col>
                     <Col md="4" className="form-group">
                       <label htmlFor="feInputState">Role</label>
-                      <FormSelect id="feInputState" value={userProfile.role}>
+                      <FormSelect id="feInputState" value="Admin" >
                         <option>User</option>
                         <option>Admin</option>
                       </FormSelect>
@@ -112,7 +146,7 @@ class UserAccountDetails extends Component{
                       <label htmlFor="feCity">CreatedAt</label>
                       <FormInput
                         placeholder=""
-                        value={userProfile.createdAt}
+                        value="26/10/2019"
                         onChange={() => {}}
                       />
                     </Col>
@@ -120,7 +154,7 @@ class UserAccountDetails extends Component{
                       <label htmlFor="feCity">UpdatedAt</label>
                       <FormInput
                         placeholder=""
-                        value={userProfile.updatedAt}
+                        value="15/11/2019"
                         onChange={() => {}}
                       />
                     </Col>
@@ -138,4 +172,4 @@ class UserAccountDetails extends Component{
   }
 }
   
-export default withRouter(UserAccountDetails);
+export default withRouter(UserAccountDetailFake);

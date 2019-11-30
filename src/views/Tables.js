@@ -4,25 +4,26 @@ import { Container, Row, Col, Card, CardHeader, CardBody } from "shards-react";
 import axios from 'axios';
 import PageTitle from "../components/common/PageTitle";
 import UserAccountDetails from "../components/user-profile-lite/UserAccountDetails";
-import {getUser} from "../utils/mixins.js";
-
+import { getUsers } from "../utils/mixins.js";
 
 class Tables extends Component {
-  state = {
-    persons: []
+  constructor(props) {
+    super(props);
+    this.state = {
+      persons: []
+    }
   }
-
   componentDidMount() {
-    getUser()
+    getUsers()
       .then(res => {
-        const persons = res.data;
-        this.setState({ persons });
+        this.setState({ persons : res });
       })
       .catch(error => console.log(error));
   }
   render(){
+    console.log(this.state.persons);
     return(
-      <Container fluid className="main-content-container px-4">
+      <Container fluid className="main-content-container px-4 bg1">
           {/* Page Header */}
           <Row noGutters className="page-header py-4">
             <PageTitle sm="4" title="Danh Sách Khách Hàng" className="text-sm-left" />
