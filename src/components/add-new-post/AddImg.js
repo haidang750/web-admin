@@ -1,32 +1,40 @@
 import React from "react";
 import './AddImage.css';
 import { config } from '../../config'
-
+import axios from 'axios'
 class AddImg extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {files: '', imagePreviewUrl: ''};
+    this.state = {
+      image : null,
+      imagePreviewUrl :''
+    };
   }
 
-  _handleSubmit(e) {
-    e.preventDefault();
-    // TODO: do something with -> this.state.file
-    console.log('handle uploading-', this.state.files);
+  _handleChange(e){
+    this.setState({
+      [e.target.id] : e.target.value
+    })
   }
-
-  _handleImageChange(e) {
+  async _handleImageChange(e) {
     e.preventDefault();
-
+    
     let reader = new FileReader();
     let files = e.target.files[0];
+    console.log(files);
     console.log(reader, e.target.files);
     reader.onloadend = () => {
       this.setState({
-        files: files,
         imagePreviewUrl: reader.result
       });
     }
      reader.readAsDataURL(files)
+
+     const formData = new FormData();
+    formData.append('shoeImages', files);
+    const response = await axios.post('/shoes/images', formData)
+    
+    this.props.onReceiveImage(response);
   }
 
   render() {
@@ -44,11 +52,10 @@ class AddImg extends React.Component {
           <form onSubmit={(e)=>this._handleSubmit(e)}>
             <input className="fileInput" 
               type="file" 
-              multiple
               onChange={(e)=>this._handleImageChange(e)} />
-            <button className="submitButton" 
+            {/*<button className="submitButton" 
               type="submit" 
-              onClick={(e)=>this._handleSubmit(e)}>Upload Image</button>
+              onClick={(e)=>this._handleSubmit(e)}>Upload Image</button>*/}
           </form>
           <div className="imgPreview">
             {$imagePreview}

@@ -19,7 +19,7 @@ class AddNewPost extends Component {
     this.state = {
       size: [],
       category: '',
-      images: [],
+      images: '',
       color : [],
       name : '',
       price : 0,
@@ -34,6 +34,7 @@ class AddNewPost extends Component {
     this.onPriceChange = this.onPriceChange.bind(this);
     this.onDescChange = this.onDescChange.bind(this);
     this.onHandleClick = this.onHandleClick.bind(this);
+    this.onSetImage = this.onSetImage.bind(this);
   }
   onSetSize(sizeId) {
     let sizes = [...this.state.size];
@@ -66,12 +67,15 @@ class AddNewPost extends Component {
   onDescChange(event) {
     this.setState({desc : event.target.value})
   }
-
+  onSetImage(response) {
+    this.setState({images : response[0]})
+  }
   async onHandleClick() {
     const shoe = this.state;
+    console.log(shoe);
     try {
       const data = await axios.post('/shoes', shoe);
-      console.log(data);
+      //console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -94,7 +98,7 @@ class AddNewPost extends Component {
                 </Form>
               </CardBody>
             </Card>
-             <AddImg />
+             <AddImg onReceiveImage = {this.onSetImage}/>
           </Col>
           <Col lg="3" md="12">
             <ShoeSize sizes={this.state.sizes} onReceiveSize={this.onSetSize}/>

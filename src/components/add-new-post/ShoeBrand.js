@@ -19,11 +19,17 @@ class ShoeBrand extends Component{
   constructor(props){
     super(props);
     this.state = {
-      categories : []
+      categories : [],
+      value : '',
+
     }
   }
   onHandleClick(id){
     this.props.onReceiveCate(id);
+  }
+  handleClick() {
+    const { value } = this.state;
+    axios.post('/categories', {name : value});
   }
   render(){
     const {categories} = this.state;
@@ -45,9 +51,9 @@ class ShoeBrand extends Component{
 
             <ListGroupItem className="d-flex px-3">
               <InputGroup className="ml-auto">
-                <FormInput placeholder="Thêm thương hiệu" />
+                <FormInput placeholder="Thêm thương hiệu" onChange={(event)=>this.setState({value: event.target.value })} />
                 <InputGroupAddon type="append">
-                  <Button theme="white" className="px-2">
+                  <Button theme="white" className="px-2" onClick={()=>this.handleClick()}>
                     <i className="material-icons">add</i>
                   </Button>
                 </InputGroupAddon>

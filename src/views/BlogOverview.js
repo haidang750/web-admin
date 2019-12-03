@@ -77,7 +77,7 @@ BlogOverview.defaultProps = {
   smallStats: [
     {
       label: "Sản Phẩm",
-      value: "692",
+      value: "10",
       increase: true,
       chartLabels: [null, null, null, null, null, null, null],
       attrs: { md: "6", sm: "6" },
@@ -94,7 +94,7 @@ BlogOverview.defaultProps = {
     },
     {
       label: "Khách Hàng",
-      value: "7,458",
+      value: "9",
       increase: true,
       chartLabels: [null, null, null, null, null, null, null],
       attrs: { md: "6", sm: "6" },
@@ -111,7 +111,7 @@ BlogOverview.defaultProps = {
     },
     {
       label: "Phản Hồi",
-      value: "135",
+      value: "15",
       percentage: "5.3%",
       increase: false,
       decrease: true,
@@ -130,8 +130,8 @@ BlogOverview.defaultProps = {
     },
     {
       label: "Khách Hàng Mới",
-      value: "29",
-      percentage: "2.71%",
+      value: "2",
+      percentage: "0%",
       increase: false,
       decrease: true,
       chartLabels: [null, null, null, null, null, null, null],
@@ -149,7 +149,7 @@ BlogOverview.defaultProps = {
     },
     {
       label: "Doanh Thu",
-      value: "82,457,000",
+      value: "8,590,000",
       percentage: "2.4%",
       increase: true,
       decrease: false,

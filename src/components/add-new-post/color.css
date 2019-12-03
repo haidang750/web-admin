@@ -1,0 +1,15 @@
+.main11 {
+  margin: 100px auto;
+}
+
+.color-indicator {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+
+  transition: transform .2s;
+}
+.color-indicator:hover {
+  transform: scale(1.1);
+}

@@ -18,11 +18,16 @@ class ShoeSize extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      sizes : []
+      sizes : [],
+      value : '',
     }
   }
   onHandleClick(id){
     this.props.onReceiveSize(id);
+  }
+  handleClick(){
+    const { value } = this.state;
+    axios.post('/sizes', {size : value});
   }
   render(){
     const {sizes} = this.state;
@@ -41,9 +46,9 @@ class ShoeSize extends Component{
             </ListGroupItem>
              <ListGroupItem className="d-flex px-3">
               <InputGroup className="ml-auto">
-                <FormInput placeholder="Thêm size" />
+                <FormInput placeholder="Thêm size" onChange = {(event) => {this.setState({value : event.target.value})}}/>
                 <InputGroupAddon type="append">
-                  <Button theme="white" className="px-2">
+                  <Button theme="white" className="px-2" onClick={() =>this.handleClick()}>
                     <i className="material-icons">add</i>
                   </Button>
                 </InputGroupAddon>

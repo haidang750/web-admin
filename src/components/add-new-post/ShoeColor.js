@@ -14,7 +14,8 @@ import {
   FormInput
 } from "shards-react";
 import axios from 'axios';
-
+import Picker from './Picker';
+import './color.css'
 class ShoeColor extends Component{
   constructor(props){
     super(props);
